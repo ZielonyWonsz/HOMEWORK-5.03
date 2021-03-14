@@ -1,0 +1,31 @@
+package Zadanko;
+import Zadanko.Osoba;
+
+import java.util.Scanner;
+
+public class Main
+{
+    public static void main(String[] args)
+    {
+        while (true)
+        {
+            Scanner scan = new Scanner(System.in);
+            System.out.println("Jak masz na imie?");
+            String imie = scan.nextLine();
+            System.out.println("Jak masz na nazwisko?");
+            String nazwisko = scan.nextLine();
+            System.out.println("Którego roku się urodziłeś?");
+            int rok = scan.nextInt();
+            try
+            {
+                Osoba o = new Osoba (imie, nazwisko, rok);
+                System.out.println(o);
+                break;
+            }
+            catch (IllegalArgumentException e)
+            {
+                System.out.println(e.getMessage());
+            }
+        }
+    }
+}
