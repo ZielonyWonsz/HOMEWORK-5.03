@@ -1,0 +1,33 @@
+package Zadanko;
+
+public class Osoba
+{
+    String imie, nazwisko;
+    int rok;
+    private void checkPersonData (String imie, String nazwisko, int rok)
+    {
+        if (imie.isEmpty() == true)
+        {
+            throw new IllegalArgumentException ("Nie podałeś imienia");
+        }
+        else if (nazwisko.isEmpty() == true)
+        {
+            throw new IllegalArgumentException ("Nie podałeś nazwiska");
+        }
+        else if ((rok < 1900) || (rok > 2020))
+        {
+            throw new IllegalArgumentException ("Podano zły rok urodzenia");
+        }
+    }
+    public Osoba (String imie, String nazwisko, int rok)
+    {
+        checkPersonData (imie, nazwisko, rok);
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.rok = rok;
+    }
+    public String toString()
+    {
+        return String.format ("imie %s  nazwisko %s  Rok %d ",imie,nazwisko,rok);
+    }
+}
